@@ -1,9 +1,7 @@
 ﻿# .NET 6에서 JSON 직렬화 및 역직렬화 예제
 
+##예제
 ### 직렬화할 클래스 정의
-  
-  
-
     public class Person
     {
       public string? Name { get; set; }
@@ -80,3 +78,9 @@
     Console.WriteLine(jsonNode["Favoritefood"].ToJsonString(options));
     Console.WriteLine(jsonNode["Birthday"]);
     Console.WriteLine(jsonNode["Employed"]);
+
+## 예외
+### System.Text.Json.JsonException(The JSON value could not be converted to System.String)
+    System.Text.Json은 문자열이 아닌 값을 문자열 속성으로 역직렬화하지 않습니다. 문자열 필드에 대해 문자열이 아닌 값을 받으면 다음 메시지와 함께 JsonException이 반환됩니다.
+    해결 : 역직렬화 하려는 클래스의 문자 필드열과 숫자 필드열을 구분하여 정의해야 합니다.
+    참조 : https://jinwooking.tistory.com/192    
